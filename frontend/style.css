@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --branco: #fff;
+    --verde: #1b3c29;
+    --amarelo: #f6A823;
+
+}
+
+.app{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    height: 15vh;
+    margin: 15px;
+    background-color: blue;
+    min-width: 100vw;
+}
+.img_login{
+    height: 10vh;
+    border-radius: 50%;
+    
+}
+.ver-perfil{
+    color: var(--branco);
+    background-color: var(--verde);
+    border: none;
+}
+.secao_empresa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btn-login{
+    background-color: var(--verde);
+    color: #fff;
+
+}
+.lupa{
+    height: 1vh;
+}
+.mural_receitas{
+    background-color: #f6A823;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100vw;
+    justify-content: space-between;
+    margin-top: 10px;
+    height: 50vh;
+}
+.receita_1{
+    background-color: red;
+    height: 10vh;
+    width: 30vw;
+}
