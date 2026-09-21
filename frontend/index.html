@@ -3,48 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaepChef</title>
+    <title>SaepChef - Registro de Receita</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app">
-        <div class="cabecalho">
+        
+        <aside id="menu-lateral" class="menu-lateral">
+            <div class="menu-cabecalho">
+                <h3>Perfil do Chef</h3>
+                <span id="fechar-menu" class="btn-fechar">&times;</span>
+            </div>
+            <div class="menu-conteudo">
+                <p id="info-favoritos">0 Favoritos</p>
+                <p id="info-receitas">0 Receitas</p>
+                <button id="btn-suas-receitas" class="btn-suas-receitas">Suas receitas</button>
+            </div>
+        </aside>
+        <div id="overlay-menu" class="overlay-menu"></div>
+
+
+        <header class="cabecalho">
             <div class="secao_usuario" id="secao_usuario">
-                <img class="img_login" src="../anexos_prova/imagens_usuarios/chef1.jpg" alt="">
+                <img class="img_login" src="../anexos_prova/imagens_usuarios/chef1.jpg" alt="Foto do Chef">
                 <h5>SAEPChef</h5>
                 <button id="ver-perfil" class="ver-perfil">Ver Perfil</button>
             </div>
+
             <div class="secao_empresa" id="secao_empresa">
                 <h1>SAEPChef</h1>
             </div>
-            <button class="btn-login" id="btn-login">Botão Login</button>
-        </div>
-        <div class="campo_busca">
-            <input type="text" placeholder="Digite o nome do chef... ex: @chef1">
-            <img src="../anexos_prova/icones/lupa.svg" alt="lupa" id="lupa" class="lupa">
-        </div>
-        <div class="mural_receitas" id="mural_receitas">
 
+            <button class="btn-login" id="btn-login">Login</button>
+        </header>
 
-                <div class="receita_1">
-                    <img src="../anexos_prova/receitas/receita1.jpg" alt="">
-                    <h1>Receita 1</h1>
-                    <img src="../anexos_prova/icones/coracao.svg" alt="">
-                    <div>Favoritos: 1</div>
+        <section class="secao-cadastro">
+            <h2>Cadastrar Nova Receita</h2>
+            <form id="form-cadastro-receita" class="form-cadastro" novalidate>
+                
+
+                <div class="grupo-campo">
+                    <label for="titulo-receita">Título da Receita</label>
+                    <input type="text" id="titulo-receita" placeholder="ex.: Risoto de Funghi">
+                    <span class="mensagem-erro" id="erro-titulo"></span>
                 </div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
-                <div class="receita_1">a</div>
+
+                <div class="grupo-campo">
+                    <label for="origem-receita">Origem da receita</label>
+                    <input type="text" id="origem-receita" placeholder="ex.: Itália">
+                    <span class="mensagem-erro" id="erro-origem"></span>
+                </div>
 
 
+                <div class="grupo-campo">
+                    <label for="imagem-receita">Imagem</label>
+                    <div class="container-upload">
+                        <label for="imagem-receita" class="btn-upload">Escolher arquivo</label>
+                        <input type="file" id="imagem-receita" accept="image/jpeg, image/jpg, image/png, image/gif, image/webp" hidden>
+                        <span id="nome-arquivo" class="nome-arquivo">Nenhum arquivo escolhido</span>
+                    </div>
+                    <span class="mensagem-erro" id="erro-imagem"></span>
+                </div>
+
+                <button type="submit" id="btn-cadastrar" class="btn-cadastrar">Cadastrar</button>
+            </form>
+        </section>
+
+
+        <div class="campo_busca">
+            <input type="text" id="input-busca" placeholder="Digite o nome do chef...">
+            <img src="../anexos_prova/icones/lupa.svg" alt="Lupa de busca" id="lupa" class="lupa">
         </div>
-        <footer class="rodape"></footer>
+
+        <main class="mural_receitas" id="mural_receitas">
+
+        </main>
+
+        <footer class="rodape">
+            <div class="rodape_esquerda">
+                <span>SAEPChef</span>
+            </div>
+
+            <div class="rodape_centro">
+                <img src="../anexos_prova/icones/instagram.svg" alt="Instagram">
+                <img src="../anexos_prova/icones/tiktok.svg" alt="TikTok">
+                <img src="../anexos_prova/icones/linkedIn.svg" alt="LinkedIn">
+                <img src="../anexos_prova/icones/youtube.svg" alt="YouTube">
+            </div>
+
+            <div class="rodape_direita">
+                <span>Copyright 2026-2027</span>
+            </div>
+        </footer>
+
     </div>
+
+
+    <div id="modal-login" class="modal">
+        <div class="modal-conteudo">
+            <span id="fechar-modal" class="fechar">&times;</span>
+            <h2>Faça Login</h2>
+            <form id="form-login">
+                <input type="text" placeholder="Utilizador" required>
+                <input type="password" placeholder="Palavra-passe" required>
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
