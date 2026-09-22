@@ -89,3 +89,18 @@ VALUES
 (6,'Beatriz Lima','usuario3','usuario3@gmail.com',123456,'usuario3.jpg','comum','2026-01-20 16:10:00','2026-01-20 16:10:00');
 
 SELECT * FROM public.tb_usuario 
+
+
+-- Inserir Chefs e Utilizadores de Teste
+INSERT INTO usuarios (nome_usuario, email, senha, tipo, imagem_usuario)
+VALUES ('chef1', 'chef1@gmail.com', '123456', 'chef', 'assets/images/chef1.jpg')
+ON CONFLICT DO NOTHING;
+
+INSERT INTO usuarios (nome_usuario, email, senha, tipo)
+VALUES ('joao', 'joao@gmail.com', '123456', 'comum')
+ON CONFLICT DO NOTHING;
+
+-- Inserir Receita associada ao Chef
+INSERT INTO receitas (titulo_receita, origem_receita, url_imagem, id_usuario)
+VALUES ('Bolo de Cenoura', 'Brasil', 'https://images.unsplash.com/photo-1578985545062-69928b1d9587', 1)
+ON CONFLICT DO NOTHING;

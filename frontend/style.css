@@ -1,496 +1,411 @@
-:root {
-  --branco: #ffffff;
-  --verde: #1b3c29;
-  --amarelo: #f6A823;
-  --cinza-claro: #f4f4f4;
-  --vermelho-erro: #d9534f;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-html, body {
+:root {
+  --cor-principal: #01C229; /* Verde oficial correto */
+  --cor-fundo: #FFFFFF;
+  --cor-destaque: #F5A623;
+  --cor-texto: #333333;
+  --cor-cinza: #f8f9fa;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
   min-height: 100vh;
-  background-color: var(--branco);
-}
-
-.app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  align-items: center;
-  width: 100%;
 }
 
-.cabecalho {
+/* --- CABEÇALHO --- */
+header {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--cor-principal);
+  padding: 15px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding: 15px 30px;
-  background-color: var(--verde);
-  color: var(--branco);
 }
 
-.secao_usuario {
+.secao-usuario {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.img_login {
-  width: 50px;
-  height: 50px;
+.foto-perfil {
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--cor-principal);
 }
 
-.ver-perfil,
-.btn-login {
-  color: var(--verde);
-  background-color: var(--branco);
+.nome-usuario {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.btn-perfil {
+  background-color: var(--cor-principal);
+  color: #ffffff;
   border: none;
-  padding: 8px 16px;
+  padding: 4px 10px;
   border-radius: 4px;
-  font-weight: bold;
   cursor: pointer;
+  font-size: 0.8rem;
 }
 
-.ver-perfil:disabled {
-  opacity: 0.5;
+.btn-perfil:disabled {
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
+.secao-empresa h1 {
+  color: var(--cor-principal);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 .btn-login {
-  background-color: var(--amarelo);
-  color: #000;
-}
-
-.secao-cadastro {
-  width: 100%;
-  max-width: 600px;
-  background-color: var(--cinza-claro);
-  padding: 25px;
-  border-radius: 8px;
-  margin: 25px 20px 10px 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.secao-cadastro h2 {
-  color: var(--verde);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.form-cadastro {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.grupo-campo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-align: left;
-}
-
-.grupo-campo label {
-  font-weight: bold;
-  color: var(--verde);
-}
-
-.grupo-campo input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.container-upload {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.btn-upload {
-  background-color: var(--verde);
-  color: var(--branco);
-  padding: 8px 14px;
-  border-radius: 4px;
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 
-.nome-arquivo {
-  font-size: 0.9rem;
-  color: #555;
+/* --- BUSCA CENTRALIZADA --- */
+.container-busca {
+  max-width: 500px;
+  margin: 30px auto 10px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.form-busca {
+  display: flex;
+  gap: 10px;
+}
+
+.input-busca {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid var(--cor-principal);
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.btn-buscar {
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  border: none;
+  padding: 0 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .mensagem-erro {
-  color: var(--vermelho-erro);
+  color: #e74c3c;
   font-size: 0.85rem;
-  min-height: 18px;
+  margin-top: 6px;
+  min-height: 20px;
 }
 
-.btn-cadastrar {
-  background-color: var(--verde);
-  color: var(--branco);
-  border: none;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 10px;
-}
-
-.btn-cadastrar:hover {
-  background-color: #12281b;
-}
-
-.campo_busca {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 25px 0;
-  gap: 10px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.campo_busca input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  outline: none;
-}
-
-.lupa {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.mural_receitas {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 30px; 
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px 40px 20px;
+/* --- CONTEÚDO E MURAL DE RECEITAS --- */
+main {
   flex: 1;
-}
-
-.receita_card {
-  background-color: var(--amarelo);
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.receita_card h2 {
-  font-size: 1.2rem;
-  color: #000;
-  text-align: center;
-}
-
-.btn-lixeira {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icone-lixeira {
-  width: 22px;
-  height: 22px;
-
-  filter: invert(71%) sepia(85%) saturate(945%) hue-rotate(346deg) brightness(101%) contrast(93%);
-  transition: transform 0.2s;
-}
-
-.btn-lixeira:hover .icone-lixeira {
-  transform: scale(1.15);
-}
-
-.favoritos {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.icone_coracao {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.2s;
-}
-
-.container-imagem {
-  position: relative; 
-  display: inline-block;
-}
-
-.imagens_receitas {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--branco);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; 
-  cursor: pointer;
-}
-
-.container-imagem:hover .imagens_receitas {
-  transform: scale(1.08); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-}
-
-.tooltip {
-  visibility: hidden;
-  opacity: 0;
-  background-color: var(--verde); 
-  color: var(--branco);
-  text-align: center;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  
-  position: absolute;
-  bottom: 110%; 
-  left: 50%;
-  transform: translateX(-50%); 
-  white-space: nowrap;
-  
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  pointer-events: none; 
-  z-index: 10;
-}
-
-.tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%; 
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: var(--verde) transparent transparent transparent;
-}
-
-.container-imagem:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.menu-lateral {
-  position: fixed;
-  top: 0;
-  left: -320px;
-  width: 300px;
-  height: 100vh;
-  background-color: var(--branco);
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
-  transition: left 0.3s ease;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.menu-lateral.aberto {
-  left: 0;
-}
-
-.menu-cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid var(--verde);
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-.btn-fechar {
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  color: var(--verde);
-}
-
-.menu-conteudo p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.btn-suas-receitas {
+  max-width: 1200px;
   width: 100%;
-  padding: 12px 0;
-  background: none;
-  border: none;
-  border-top: 2px solid var(--verde);
-  border-bottom: 2px solid var(--verde);
-  font-weight: bold;
-  font-size: 1rem;
-  color: var(--verde);
-  cursor: pointer;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.grid-receitas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   margin-top: 20px;
 }
 
-.btn-suas-receitas:hover {
-  background-color: var(--cinza-claro);
+.card-receita {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.overlay-menu {
+.container-imagem {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.img-receita {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.container-imagem:hover .img-receita {
+  transform: scale(1.05);
+}
+
+.tooltip-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(1, 194, 41, 0.9);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.container-imagem:hover .tooltip-hover {
+  opacity: 1;
+}
+
+.card-info {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-favoritos {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.btn-favoritar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- MODAL DE LOGIN --- */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
-  display: none;
-}
-
-.overlay-menu.ativo {
-  display: block;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal-conteudo {
-  background-color: var(--branco);
-  padding: 30px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-}
-
-.modal-conteudo h2 {
-  margin-bottom: 20px;
-  color: var(--verde);
-}
-
-.modal-conteudo form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.modal-conteudo input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.fechar {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-}
-
-.fechar:hover {
-  color: red;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
 }
 
 .modal.ativo {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
-
-.rodape {
+.conteudo-modal {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
   width: 100%;
-  background-color: var(--verde);
-  color: var(--branco);
+  max-width: 400px;
+  position: relative;
+}
+
+.btn-fechar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.conteudo-modal h2 {
+  text-align: center;
+  color: var(--cor-principal);
+  margin-bottom: 20px;
+}
+
+.campo-form {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.campo-form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.campo-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+.acoes-modal {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 2px solid var(--cor-principal);
+  color: var(--cor-principal);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-submeter {
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* --- DRAWER (MENU LATERAL DO CHEF) --- */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -350px;
+  width: 350px;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  transition: left 0.3s ease;
+  z-index: 999;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer.ativo {
+  left: 0;
+}
+
+.drawer-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--cor-principal);
+  padding-bottom: 10px;
+}
+
+.estatisticas-chef {
+  margin-bottom: 20px;
+  background: var(--cor-cinza);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.btn-suas-receitas {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: var(--cor-principal);
+  border-top: 2px solid var(--cor-principal);
+  border-bottom: 2px solid var(--cor-principal);
+  border-left: none;
+  border-right: none;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.lista-suas-receitas {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.item-sua-receita {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.btn-deletar {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- CADASTRO DE RECEITAS --- */
+.secao-cadastro-receita {
+  background: var(--cor-cinza);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: none;
+}
+
+.secao-cadastro-receita h2 {
+  color: var(--cor-principal);
+  margin-bottom: 15px;
+}
+
+.form-cadastro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.campo-full {
+  grid-column: span 2;
+}
+
+/* --- RODAPÉ --- */
+footer {
+  background-color: var(--cor-principal);
+  color: #ffffff;
+  padding: 18px 40px;
   margin-top: auto;
 }
 
-.rodape_esquerda span {
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-.rodape_centro {
+.conteudo-footer {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 16px;
 }
 
-.rodape_centro img {
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.rodape_centro img:hover {
-  transform: scale(1.15);
-}
-
-.rodape_direita span {
-  font-size: 0.9rem;
-}
-
-
-@media (max-width: 768px) {
-  .mural_receitas {
-    grid-template-columns: 1fr; 
-  }
-  
-  .cabecalho {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .rodape {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
+.redes-sociais {
+  display: flex;
+  gap: 15px;
 }
